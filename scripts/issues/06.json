@@ -1,0 +1,4 @@
+{
+  "title": "[1-E] Todos Route Handlers (CRUD + 필터/정렬)",
+  "body": "## 작업내용\n- GET `/api/todos` — 쿼리 파라미터 `q`, `list_id`, `category_id`, `priority`, `is_completed`, `sort` 지원 (기본 정렬 `created_at` desc)\n- POST `/api/todos` — 생성 시 `userId` 강제 주입 (요청 본문의 userId는 무시)\n- PATCH `/api/todos/[id]` — 완료 토글/제목/설명/우선순위/마감일/카테고리/리스트 변경 + `updatedAt` 자동 갱신\n- DELETE `/api/todos/[id]` — 소유권 검증\n\n## 작업목적\n앱의 핵심 도메인. UI가 사용할 모든 동작이 여기에 묶이므로, UI 시작 전에 모든 시나리오를 curl로 검증.\n\n## 인수조건 (AC)\n- [ ] 6종 쿼리 파라미터 모두 동작 (단일/조합 모두)\n- [ ] PATCH 시 `updatedAt`이 새 timestamp로 갱신됨\n- [ ] 다른 사용자 todo에 GET/PATCH/DELETE 시 404 NOT_FOUND\n- [ ] POST 시 클라이언트가 보낸 `userId` 필드는 무시되고 토큰의 userId 사용\n- [ ] curl로 시드 → 필터 → 정렬 → 토글 → 삭제 시나리오 통과\n- [ ] `priority` 잘못된 값 → 400 VALIDATION_FAILED\n\n## 의존성\n- #17 ([1-D] list/category가 있어야 외래키 시나리오 검증)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 1-E"
+}

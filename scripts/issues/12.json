@@ -1,0 +1,4 @@
+{
+  "title": "[2-E] E2E (Playwright) + 데모 준비 (tutorial.md)",
+  "body": "## 작업내용\n- `@playwright/test` 설치 + `playwright.config.ts` (Next dev 서버 자동 기동)\n- `tests/e2e/todo-flow.spec.ts` — 회원가입 → 로그인 → Todo 생성 → 완료 토글 → 삭제 시나리오\n- (선택) `docker-compose.yml` — Node 컨테이너 + 볼륨 마운트\n- `docs/tutorial.md` 채우기 — 데모 진행 순서, 핵심 프롬프트, 발표용 멘트, 화면 캡처 자리\n\n## 작업목적\n단계 2 DoD 마무리 + 라이브 데모용 스크립트 준비. 데모 당일 흐름이 끊기지 않도록.\n\n## 인수조건 (AC)\n- [ ] `pnpm exec playwright test` 무에러 통과\n- [ ] 새로고침 후 데이터/로그인 상태 유지\n- [ ] 다른 사용자 계정 동시 로그인 시 첫 사용자 todo 미노출 (수동 검증)\n- [ ] JWT 손상 시뮬레이션 → 자동 로그아웃 + `/login` 이동\n- [ ] `docs/tutorial.md`에 데모 진행 순서 + 발표용 멘트 정리\n\n## 의존성\n- #23 ([2-D] 낙관적 업데이트까지 완성된 UI 위에서 E2E)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 2-E"
+}

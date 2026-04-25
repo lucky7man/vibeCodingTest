@@ -1,0 +1,4 @@
+{
+  "title": "[단계 0] 프로젝트 초기 셋업 (Next.js + Tailwind + shadcn/ui)",
+  "body": "## 작업내용\n- Node.js 20+ / pnpm 설치 확인\n- `pnpm create next-app@latest .` (TS / App Router / Tailwind / ESLint / src dir / import alias `@/*`)\n- `.gitignore` 보강: `data/`, `logs/`, `.env.local` 포함 확인\n- `.env.local.example` 작성 (`JWT_SECRET`, `DATABASE_URL=file:./data/app.db`)\n- shadcn/ui 초기화 (`pnpm dlx shadcn@latest init`, 다크모드 활성화)\n\n## 작업목적\n이후 모든 단계가 의존하는 빈 캔버스를 마련한다. 첫 파일을 만들기 전에 의존성·스타일·디렉토리 구조를 못 박아 일관성을 확보하기 위함.\n\n## 인수조건 (AC)\n- [ ] `pnpm dev` 실행 시 Next.js 기본 페이지가 `http://localhost:3000`에서 응답\n- [ ] `pnpm dlx shadcn@latest add button` 실행 후 `src/components/ui/button.tsx` 생성됨\n- [ ] `.env.local.example`에 `JWT_SECRET`과 `DATABASE_URL` 두 키 모두 존재\n- [ ] `.gitignore`에 `data/`, `logs/`, `.env.local` 모두 포함\n- [ ] `pnpm typecheck`, `pnpm lint` 무에러\n\n## 의존성\n- 없음 (시작점)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 단계 0"
+}

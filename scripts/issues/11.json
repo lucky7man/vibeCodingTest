@@ -1,0 +1,4 @@
+{
+  "title": "[2-D] 낙관적 업데이트 (생성 + 완료 토글)",
+  "body": "## 작업내용\n- `NewTodoInput`: `onMutate`에서 캐시에 임시 항목 추가 → 실패 시 롤백\n- `TodoItem` 완료 토글: 같은 패턴 (`onMutate` / `onError` / `onSettled`)\n\n## 작업목적\n데모 시 체감 반응성을 끌어올린다. 네트워크 지연이 있어도 즉시 반영되어 보이도록.\n\n## 인수조건 (AC)\n- [ ] 새 Todo 입력 → Enter 즉시 화면에 추가됨 (서버 응답 대기 없이)\n- [ ] API 실패 시 추가했던 항목이 사라지고 토스트로 에러 표시\n- [ ] 완료 체크박스 클릭 즉시 반영 + 실패 시 롤백\n- [ ] React Query `onMutate` / `onError` / `onSettled` 모두 구현\n- [ ] 변이 후 `['todos']` 캐시가 정확히 무효화됨\n\n## 의존성\n- #22 ([2-C] 컴포넌트 존재해야 패턴 적용)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 2-D"
+}

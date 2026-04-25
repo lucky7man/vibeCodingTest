@@ -1,0 +1,4 @@
+{
+  "title": "[2-B] 인증 화면 (/login, /register, AuthGuard)",
+  "body": "## 작업내용\n- `src/app/login/page.tsx` — react-hook-form + Zod (validators.ts 재사용)\n- `src/app/register/page.tsx`\n- `src/components/AuthGuard.tsx` — `localStorage.token` 부재 시 `router.replace('/login')`\n\n## 작업목적\n메인 화면 진입 전 사용자 식별을 확보하고 보호 라우트 가드를 일원화.\n\n## 인수조건 (AC)\n- [ ] 회원가입 성공 → `/login` 또는 `/`로 자동 이동\n- [ ] 로그인 성공 → `localStorage.token` 저장 + `/`로 이동\n- [ ] 토큰 없이 `/` 접근 → `/login`으로 자동 리다이렉트\n- [ ] 잘못된 자격 입력 → 폼에 한국어 에러 표시\n- [ ] Zod 스키마는 `validators.ts`의 것을 재사용 (단일 소스)\n\n## 의존성\n- #20 ([2-A] api-client 사용)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 2-B"
+}

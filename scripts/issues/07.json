@@ -1,0 +1,4 @@
+{
+  "title": "[1-F] 관찰성 + 품질 게이트 (logger + typecheck + lint)",
+  "body": "## 작업내용\n- `src/lib/logger.ts` — 콘솔 + `logs/app.log` 동시 기록, 포맷 `[ISO][LEVEL][method] path → status (Xms) userId=N`\n- 모든 Route Handler에 진입/에러 로깅 적용 (try/catch 또는 wrapper)\n- `pnpm typecheck`, `pnpm lint` 무에러 통과\n- (선택) `scripts/smoke.sh` — 단계 1 검증 curl 시나리오 자동화\n\n## 작업목적\n단계 1 DoD 마무리. 이후 UI 작업 중 API 회귀가 발견되면 로그로 빠르게 추적할 수 있어야 함.\n\n## 인수조건 (AC)\n- [ ] `logs/app.log`에 요청 로그가 한 줄씩 누적\n- [ ] 핸들러 내부에서 throw 발생 시 ERROR 라인이 로그에 남고 500 INTERNAL 응답\n- [ ] `pnpm typecheck && pnpm lint` 둘 다 무에러\n- [ ] `logs/`가 `.gitignore`로 제외됨\n- [ ] (선택) smoke.sh 실행 시 모든 케이스 PASS\n\n## 의존성\n- #18 ([1-E] 모든 핸들러 완성 후 일괄 로깅 적용)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 1-F"
+}

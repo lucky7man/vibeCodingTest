@@ -1,0 +1,4 @@
+{
+  "title": "[2-A] 클라이언트 인프라 (TanStack Query + fetch 래퍼)",
+  "body": "## 작업내용\n- 의존성 설치: `@tanstack/react-query`, `react-hook-form`, `@hookform/resolvers`\n- `src/app/providers.tsx` — TanStack Query Provider\n- `src/app/layout.tsx` — Provider로 감싸기 + 다크모드 클래스 적용\n- `src/lib/api-client.ts` — fetch 래퍼: `localStorage.token` 자동 주입, 401 응답 시 토큰 삭제 + `/login` 리다이렉트\n- Query 키 컨벤션: `['auth','me']`, `['lists']`, `['categories']`, `['todos', filters]`\n\n## 작업목적\n모든 UI 컴포넌트가 사용할 데이터 패칭/캐싱 토대. 401 자동 처리로 토큰 만료 UX를 일관되게 처리.\n\n## 인수조건 (AC)\n- [ ] 토큰 없이 보호 API 호출 → 401 → `localStorage.token` 삭제 + `/login`으로 자동 이동\n- [ ] 토큰 있을 때 모든 요청에 `Authorization: Bearer <token>` 자동 부착\n- [ ] React Query 캐시 키가 컨벤션대로 일관 적용\n- [ ] SSR 환경에서 Provider가 `'use client'`로 안전하게 동작\n\n## 의존성\n- #19 ([1-F] 단계 1 DoD 충족 = 백엔드 안정 후 UI 시작)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 2-A"
+}

@@ -1,0 +1,4 @@
+{
+  "title": "[1-D] Lists / Categories Route Handlers",
+  "body": "## 작업내용\n- GET, POST `/api/lists`\n- PATCH, DELETE `/api/lists/[id]`\n- GET, POST `/api/categories`\n- PATCH, DELETE `/api/categories/[id]`\n- 모든 핸들러: `requireAuth` 통과 후 `userId` 필터로 쿼리 (소유권 검증)\n\n## 작업목적\nTodo가 참조할 부모 리소스(리스트·카테고리)를 마련한다. 단순한 리소스에서 소유권 검증 정형 패턴을 먼저 다듬어 Todo에서 그대로 재사용.\n\n## 인수조건 (AC)\n- [ ] 모든 핸들러가 `requireAuth` 통과 후 `where: and(eq(...), eq(userId, ...))` 적용\n- [ ] 다른 사용자의 list/category id로 PATCH/DELETE 시 `404 NOT_FOUND` (403 아님)\n- [ ] DELETE list 시 관련 todos의 `listId`가 NULL로 (cascade 아님, set null)\n- [ ] DELETE category 시 관련 todos의 `categoryId`가 NULL로\n- [ ] curl 다중 사용자 시나리오: A가 만든 list가 B의 GET /api/lists에 절대 안 보임\n\n## 의존성\n- #16 ([1-C] 토큰 발급 가능해야 검증 가능)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 1-D"
+}

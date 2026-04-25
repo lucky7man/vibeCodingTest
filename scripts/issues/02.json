@@ -1,0 +1,4 @@
+{
+  "title": "[1-A] DB / ORM 셋업 (Drizzle + SQLite + 마이그레이션)",
+  "body": "## 작업내용\n- 의존성 설치: `drizzle-orm`, `better-sqlite3`, `drizzle-kit`, `@types/better-sqlite3`\n- `drizzle.config.ts` 작성\n- `src/db/schema.ts` — PRD §6 그대로 (`users`, `todo_lists`, `categories`, `todos` + 인덱스 3개)\n- `src/db/client.ts` — `globalThis.__db__` 싱글턴 패턴 (HMR 안전)\n- `package.json` scripts 추가: `db:generate`, `db:migrate`, `db:studio`\n- 마이그레이션 생성 + 실행 → `data/app.db` 생성 확인\n\n## 작업목적\n모든 핸들러가 의존하는 데이터 계층을 가장 먼저 안정화한다. 스키마가 흔들리면 위 계층 전부 재작업 비용이 큼.\n\n## 인수조건 (AC)\n- [ ] `pnpm db:studio`로 4개 테이블이 빈 상태로 표시됨\n- [ ] 인덱스 3개(`idx_todos_user_id`, `idx_todos_due_date`, `idx_todos_is_completed`) 생성 확인\n- [ ] FK `onDelete: 'cascade'` (todo_lists/categories→users), `set null` (todos.listId/categoryId) 동작\n- [ ] HMR 시 DB 인스턴스가 재생성되지 않음 (싱글턴 검증)\n- [ ] `data/app.db` 파일이 `.gitignore`로 제외됨\n\n## 의존성\n- #13 ([단계 0] 프로젝트 초기 셋업 완료)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 1-A"
+}

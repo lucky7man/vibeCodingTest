@@ -1,0 +1,4 @@
+{
+  "title": "[1-C] Auth Route Handlers (/api/auth/register, login, me)",
+  "body": "## 작업내용\n- POST `/api/auth/register` — username 중복 시 `409 CONFLICT`, 성공 시 `201 { data: { id, username } }`\n- POST `/api/auth/login` — 실패 시 `401 UNAUTHENTICATED`, 성공 시 `200 { data: { token } }`\n- GET `/api/auth/me` — JWT의 userId로 사용자 조회, `200 { data: { id, username } }`\n- 모든 핸들러 상단에 `export const runtime = 'nodejs';` 명시\n\n## 작업목적\n회원가입/로그인 플로우를 검증한다. 이후 모든 인증 엔드포인트의 토큰 발급원이므로 여기가 잘 되어야 후속 작업이 시작 가능.\n\n## 인수조건 (AC)\n- [ ] curl로 register → login → /me 흐름 통과\n- [ ] 같은 username 재등록 시 409 CONFLICT\n- [ ] 잘못된 비밀번호 로그인 시 401 UNAUTHENTICATED\n- [ ] 비밀번호 누락 등 검증 실패 시 400 VALIDATION_FAILED\n- [ ] DB의 `users.password`는 bcrypt 해시 (평문 저장 금지)\n\n## 의존성\n- #15 ([1-B] 인증 모듈)\n\n---\n참고: [docs/tasks.md](../blob/main/docs/tasks.md) 1-C"
+}
