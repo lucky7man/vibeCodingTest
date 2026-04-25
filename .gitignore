@@ -1,5 +1,5 @@
-# Claude Code workspace
-.claude/
+# Claude Code local-only files (settings stay local; commands/rules are tracked)
+.claude/settings.local.json
 
 # Dependencies
 node_modules/
